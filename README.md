@@ -1,5 +1,6 @@
 This pipeline takes FASTQ files for a wild-type and mutant sample to filter for variants unique to the mutant sample, intented to be used following a mutagenesis screen in C. elegans.
 
+```
 #!/bin/bash
 
 usage(){
@@ -86,3 +87,4 @@ java -jar ~/varscan/VarScan.v2.4.4.jar copyCaller output.copynumber --output-fil
 
 # Use Bedtools inersect to assign genes to homozygous deletions
 bedtools intersect -a <(cat $GTF | awk -F "\t" '$3=="gene" {print $0}') -b $MUT.copynumber.called.homdel > $MUT.homdel.genes.bed
+```
